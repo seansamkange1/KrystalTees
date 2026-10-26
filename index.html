@@ -1,596 +1,1126 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>Krystal Tees Investments | Industrial Hardware Excellence</title>
-  <!-- Google Fonts + Font Awesome -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <!-- AOS CSS (Animate on Scroll) -->
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Krystal Tees | Industrial Hardware</title>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-green: #2d6a3e;
+            --primary-green-hover: #1f4f2e;
+            --dark-bg: #1a1c1a;
+            --darker-bg: #111311;
+            --light-bg: #f9f8f6;
+            --border-color: #e5e5e5;
+            --text-dark: #111111;
+            --text-light: #555555;
+            --card-radius: 12px;
+        }
 
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: #ffffff;
-      color: #1e2a32;
-      overflow-x: hidden;
-      scroll-behavior: smooth;
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
 
-    /* Color scheme: Green (#0B5E3A / #2E7D64), White (#FFFFFF), Blue (#1E3A8A / #2C62B4) */
-    :root {
-      --green-primary: #0B5E3A;
-      --green-accent: #1C6E48;
-      --green-light: #E6F4EF;
-      --blue-deep: #1E3A8A;
-      --blue-bright: #2C62B4;
-      --blue-soft: #EFF4FC;
-      --white: #FFFFFF;
-      --gray-light: #F9FAFB;
-      --gray-mid: #E4E7EB;
-      --text-dark: #1F2A44;
-    }
+        body {
+            color: var(--text-dark);
+            background-color: #ffffff;
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+        }
 
-    /* Scroll animations base */
-    [data-aos] {
-      transition-timing-function: cubic-bezier(0.2, 0.9, 0.4, 1.1);
-    }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+        
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
 
-    /* container */
-    .container {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 0 32px;
-    }
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: 1px solid transparent;
+        }
 
-    /* Navbar */
-    .navbar {
-      background: rgba(255,255,255,0.96);
-      backdrop-filter: blur(8px);
-      box-shadow: 0 4px 20px rgba(0,0,0,0.02);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      border-bottom: 1px solid rgba(11,94,58,0.15);
-    }
-    .nav-container {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      padding: 1rem 2rem;
-      max-width: 1400px;
-      margin: 0 auto;
-    }
-    .logo h1 {
-      font-size: 1.7rem;
-      font-weight: 800;
-      background: linear-gradient(135deg, var(--green-primary) 0%, var(--blue-deep) 100%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      letter-spacing: -0.3px;
-    }
-    .logo span {
-      font-size: 0.85rem;
-      font-weight: 500;
-      color: var(--blue-bright);
-      display: block;
-      background: none;
-      -webkit-background-clip: unset;
-      background-clip: unset;
-      color: var(--green-accent);
-    }
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-      list-style: none;
-    }
-    .nav-links a {
-      text-decoration: none;
-      font-weight: 600;
-      color: #2c3e4e;
-      transition: 0.2s;
-      font-size: 1rem;
-    }
-    .nav-links a:hover {
-      color: var(--green-primary);
-    }
-    .mobile-menu {
-      display: none;
-      font-size: 1.6rem;
-      cursor: pointer;
-      color: var(--green-primary);
-    }
+        .btn-primary {
+            background-color: var(--primary-green);
+            color: white;
+        }
+        .btn-primary:hover { background-color: var(--primary-green-hover); }
 
-    /* Hero Section */
-    .hero {
-      background: linear-gradient(120deg, #F0F9F4 0%, #EAF3FF 100%);
-      padding: 4rem 0 5rem 0;
-      border-bottom: 1px solid rgba(44,98,180,0.1);
-    }
-    .hero-grid {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 2rem;
-    }
-    .hero-content {
-      flex: 1;
-      min-width: 280px;
-    }
-    .hero-content h1 {
-      font-size: 3.3rem;
-      font-weight: 800;
-      color: var(--text-dark);
-      line-height: 1.2;
-      margin-bottom: 1.2rem;
-    }
-    .hero-highlight {
-      color: var(--green-primary);
-      border-left: 4px solid var(--blue-bright);
-      padding-left: 1rem;
-    }
-    .hero p {
-      font-size: 1.2rem;
-      color: #2c475c;
-      margin-bottom: 2rem;
-      max-width: 550px;
-    }
-    .btn-group {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-    .btn-primary {
-      background: var(--green-primary);
-      border: none;
-      padding: 0.9rem 2rem;
-      border-radius: 40px;
-      font-weight: 700;
-      color: white;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      display: inline-block;
-      text-decoration: none;
-      box-shadow: 0 4px 10px rgba(11,94,58,0.2);
-    }
-    .btn-primary:hover {
-      background: #094c30;
-      transform: translateY(-3px);
-    }
-    .btn-outline {
-      background: transparent;
-      border: 2px solid var(--blue-bright);
-      padding: 0.9rem 2rem;
-      border-radius: 40px;
-      font-weight: 700;
-      color: var(--blue-deep);
-      transition: 0.2s;
-      text-decoration: none;
-      display: inline-block;
-    }
-    .btn-outline:hover {
-      background: var(--blue-bright);
-      color: white;
-      border-color: var(--blue-bright);
-    }
-    .hero-stats {
-      flex: 0.8;
-      background: rgba(255,255,255,0.7);
-      backdrop-filter: blur(4px);
-      border-radius: 32px;
-      padding: 2rem;
-      text-align: center;
-      box-shadow: 0 20px 35px -12px rgba(0,0,0,0.08);
-    }
-    .stat-number {
-      font-size: 2.8rem;
-      font-weight: 800;
-      color: var(--blue-deep);
-    }
+        .btn-outline {
+            background-color: transparent;
+            border-color: var(--text-dark);
+            color: var(--text-dark);
+        }
+        .btn-outline:hover { background-color: #f0f0f0; }
 
-    /* section general */
-    .section {
-      padding: 5rem 0;
-    }
-    .section-title {
-      text-align: center;
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin-bottom: 3rem;
-      position: relative;
-      display: inline-block;
-      width: 100%;
-    }
-    .section-title:after {
-      content: '';
-      display: block;
-      width: 80px;
-      height: 4px;
-      background: linear-gradient(90deg, var(--green-primary), var(--blue-bright));
-      margin: 0.6rem auto 0;
-      border-radius: 2px;
-    }
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      margin-top: 1rem;
-    }
-    .product-card {
-      background: var(--white);
-      border-radius: 28px;
-      padding: 1.8rem;
-      transition: all 0.3s ease;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.03);
-      border: 1px solid var(--gray-mid);
-    }
-    .product-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 20px 30px -12px rgba(11,94,58,0.12);
-      border-color: var(--green-accent);
-    }
-    .card-icon {
-      font-size: 2.5rem;
-      color: var(--green-primary);
-      margin-bottom: 1rem;
-    }
-    .product-card h3 {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-      color: var(--blue-deep);
-    }
-    .product-card p {
-      color: #334e68;
-      line-height: 1.5;
-    }
-    .badge-list {
-      margin-top: 1rem;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-    }
-    .badge {
-      background: var(--green-light);
-      padding: 0.25rem 0.75rem;
-      border-radius: 50px;
-      font-size: 0.7rem;
-      font-weight: 600;
-      color: var(--green-primary);
-    }
+        .btn-outline-white {
+            background-color: transparent;
+            border-color: #555;
+            color: white;
+        }
+        .btn-outline-white:hover { background-color: #333; }
 
-    /* quality + corporate values */
-    .quality-section {
-      background: var(--blue-soft);
-      border-radius: 48px;
-      margin: 2rem 0;
-      padding: 3rem 2rem;
-    }
-    .flex-two {
-      display: flex;
-      gap: 3rem;
-      flex-wrap: wrap;
-      align-items: center;
-    }
-    .quality-text {
-      flex: 1;
-    }
-    .values-list {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-    .value-item {
-      display: flex;
-      gap: 1rem;
-      align-items: center;
-    }
-    .value-icon {
-      background: var(--green-primary);
-      width: 48px;
-      height: 48px;
-      border-radius: 60px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-size: 1.3rem;
-    }
+        /* Top Bar */
+        .top-bar {
+            background-color: #1a1a1a;
+            color: #a0a0a0;
+            font-size: 0.75rem;
+            padding: 8px 0;
+        }
+        .top-bar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .top-left, .top-right {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+        .top-left i, .top-right i { margin-right: 6px; }
 
-    /* contact & footer */
-    .contact-section {
-      background: linear-gradient(145deg, #ffffff 0%, #F6FBF8 100%);
-      border-radius: 48px;
-      padding: 2.5rem;
-      margin: 2rem 0;
-    }
-    .contact-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 2rem;
-    }
-    .contact-card {
-      text-align: center;
-    }
-    .footer {
-      background: #0A1A2F;
-      color: #cfdfed;
-      padding: 2.5rem 0;
-      margin-top: 3rem;
-      text-align: center;
-    }
-    @media (max-width: 800px) {
-      .nav-links {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        background: white;
-        padding: 1rem;
-      }
-      .nav-links.active {
-        display: flex;
-      }
-      .mobile-menu {
-        display: block;
-      }
-      .hero-content h1 {
-        font-size: 2.2rem;
-      }
-      .container {
-        padding: 0 20px;
-      }
-    }
-  </style>
+        /* Main Navigation */
+        .main-nav {
+            background-color: white;
+            border-bottom: 1px solid var(--border-color);
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .main-nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background-color: #e8f2e8;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-green);
+            font-size: 1.2rem;
+        }
+        .logo-text h1 {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--primary-green);
+            line-height: 1.1;
+        }
+        .logo-text p {
+            font-size: 0.65rem;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            align-items: center;
+        }
+        .nav-links a {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .nav-links a i { font-size: 0.7rem; color: #888; }
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .cart-icon {
+            position: relative;
+            font-size: 1.2rem;
+            color: var(--text-dark);
+            padding: 8px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+        }
+        .cart-badge {
+            position: absolute;
+            top: -6px;
+            right: -6px;
+            background-color: var(--primary-green);
+            color: white;
+            font-size: 0.6rem;
+            font-weight: bold;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Hero Section */
+        .hero {
+            background-color: var(--light-bg);
+            padding: 80px 0;
+        }
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 60px;
+            align-items: center;
+        }
+        .pill-badge {
+            display: inline-block;
+            background-color: #e8f2e8;
+            color: var(--primary-green);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+        .hero-content h2 {
+            font-size: 3.5rem;
+            line-height: 1.05;
+            font-weight: 800;
+            letter-spacing: -1.5px;
+            margin-bottom: 24px;
+        }
+        .hero-content p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 32px;
+            max-width: 90%;
+        }
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 40px;
+        }
+        .hero-features {
+            display: flex;
+            gap: 24px;
+            border-top: 1px solid var(--border-color);
+            padding-top: 24px;
+        }
+        .hero-feature {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            font-size: 0.75rem;
+            color: var(--text-light);
+        }
+        .hero-feature i {
+            color: var(--text-dark);
+            font-size: 0.8rem;
+            margin-top: 2px;
+        }
+
+        /* Hero Sidebar Card */
+        .hero-card {
+            background-color: #f4f4f0;
+            padding: 24px;
+            border-radius: 16px;
+        }
+        .hero-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        .hero-card-item {
+            display: flex;
+            align-items: center;
+            background: white;
+            padding: 16px;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .hero-card-item:hover { transform: translateY(-2px); }
+        .hero-card-item .icon {
+            width: 40px;
+            height: 40px;
+            background-color: #f0f4f8;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #4a5568;
+            margin-right: 16px;
+        }
+        .hero-card-item .text { flex: 1; }
+        .hero-card-item .text h4 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 2px;
+        }
+        .hero-card-item .text p {
+            font-size: 0.75rem;
+            color: var(--text-light);
+        }
+        .hero-card-item .arrow { color: #888; font-size: 0.8rem; }
+        
+        .hero-card-item.dark {
+            background-color: var(--darker-bg);
+            border-color: var(--darker-bg);
+            color: white;
+        }
+        .hero-card-item.dark .icon { background-color: #2a2a2a; color: var(--primary-green); }
+        .hero-card-item.dark .text p { color: #888; }
+
+        /* Brands Section */
+        .brands {
+            background-color: var(--light-bg);
+            padding: 30px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .brands-title {
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: var(--text-light);
+            margin-bottom: 16px;
+        }
+        .brands-list {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .brand-item {
+            background: white;
+            padding: 8px 24px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            border: 1px solid var(--border-color);
+        }
+        .brand-item.dashed {
+            border-style: dashed;
+            color: var(--text-light);
+            font-weight: 500;
+            font-size: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Products Section */
+        .products {
+            padding: 80px 0;
+            background: white;
+        }
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 40px;
+        }
+        .section-header-left h4 {
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: var(--text-light);
+            margin-bottom: 8px;
+        }
+        .section-header-left h2 {
+            font-size: 2.2rem;
+            letter-spacing: -1px;
+        }
+        .link-arrow {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        .product-card {
+            border: 1px solid var(--border-color);
+            border-radius: var(--card-radius);
+            padding: 32px 24px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+        }
+        .card-blue::before { background-color: #4a90e2; }
+        .card-orange::before { background-color: #e67e22; }
+        .card-purple::before { background-color: #6c5ce7; }
+
+        .product-icon {
+            width: 48px;
+            height: 48px;
+            background-color: #f5f6f8;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 20px;
+        }
+        .product-category {
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+        .card-blue .product-category { color: #4a90e2; }
+        .card-orange .product-category { color: #d35400; }
+        .card-purple .product-category { color: #6c5ce7; }
+
+        .product-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            line-height: 1.2;
+        }
+        .product-card p {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-bottom: 24px;
+            flex-grow: 1;
+        }
+        .product-card .link-arrow {
+            font-size: 0.8rem;
+        }
+
+        /* Features Green Section */
+        .features-section {
+            background-color: var(--primary-green);
+            color: white;
+            padding: 60px 0;
+            border-radius: 16px;
+            margin: 0 24px;
+            max-width: 1232px;
+            margin: 0 auto 80px auto;
+        }
+        .features-section .container { padding: 0 40px; }
+        .features-section h2 {
+            font-size: 2rem;
+            margin-bottom: 40px;
+            letter-spacing: -0.5px;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+        }
+        .feature-item i {
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+            color: #9ec9a8;
+        }
+        .feature-item h4 {
+            font-size: 1rem;
+            margin-bottom: 8px;
+        }
+        .feature-item p {
+            font-size: 0.85rem;
+            color: #cce0d1;
+            line-height: 1.6;
+        }
+
+        /* Repair Section */
+        .repair-section {
+            background-color: var(--light-bg);
+            padding: 80px 0;
+        }
+        .repair-grid {
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr;
+            gap: 60px;
+            align-items: center;
+        }
+        .how-it-works {
+            background-color: var(--dark-bg);
+            color: white;
+            padding: 40px;
+            border-radius: 16px;
+        }
+        .how-it-works > span {
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: #888;
+            display: block;
+            margin-bottom: 24px;
+        }
+        .step {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+        .step:last-child { margin-bottom: 0; }
+        .step-num {
+            width: 28px;
+            height: 28px;
+            background-color: var(--primary-green);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: 700;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        .step-text h4 {
+            font-size: 0.95rem;
+            margin-bottom: 4px;
+        }
+        .step-text p {
+            font-size: 0.8rem;
+            color: #aaa;
+            line-height: 1.4;
+        }
+        
+        .repair-content > span {
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: var(--text-light);
+            display: block;
+            margin-bottom: 12px;
+        }
+        .repair-content h2 {
+            font-size: 2.5rem;
+            line-height: 1.1;
+            letter-spacing: -1px;
+            margin-bottom: 16px;
+        }
+        .repair-content > p {
+            font-size: 1rem;
+            color: var(--text-light);
+            margin-bottom: 32px;
+            max-width: 90%;
+        }
+        .repair-options {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+        .repair-option {
+            background: white;
+            border: 1px solid var(--border-color);
+            padding: 16px;
+            border-radius: 8px;
+            flex: 1;
+        }
+        .repair-option h4 {
+            font-size: 0.9rem;
+            margin-bottom: 4px;
+        }
+        .repair-option p {
+            font-size: 0.75rem;
+            color: var(--text-light);
+        }
+        .repair-actions {
+            display: flex;
+            gap: 16px;
+        }
+
+        /* Industries Section */
+        .industries-section {
+            background-color: var(--dark-bg);
+            color: white;
+            padding: 80px 0;
+        }
+        .industries-section h4 {
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: #888;
+            margin-bottom: 12px;
+        }
+        .industries-section h2 {
+            font-size: 2.2rem;
+            letter-spacing: -0.5px;
+            margin-bottom: 48px;
+        }
+        .industries-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+        }
+        .industry-card {
+            border: 1px solid #333;
+            padding: 24px;
+            border-radius: 12px;
+            background-color: #1e211e;
+            transition: background-color 0.2s;
+            cursor: pointer;
+        }
+        .industry-card:hover {
+            background-color: #2a2d2a;
+            border-color: #444;
+        }
+        .industry-card i {
+            font-size: 1.2rem;
+            color: #888;
+            margin-bottom: 16px;
+        }
+        .industry-card h3 {
+            font-size: 1rem;
+            margin-bottom: 8px;
+        }
+        .industry-card p {
+            font-size: 0.75rem;
+            color: #888;
+        }
+
+        /* Vision Section */
+        .vision-section {
+            background-color: var(--light-bg);
+            padding: 80px 0;
+            text-align: center;
+        }
+        .vision-section h4 {
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: var(--text-light);
+            margin-bottom: 16px;
+        }
+        .vision-section h2 {
+            font-size: 2.2rem;
+            max-width: 800px;
+            margin: 0 auto 24px auto;
+            line-height: 1.2;
+            letter-spacing: -0.5px;
+        }
+        .vision-section a {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background-color: #eaf2eb;
+            padding: 48px;
+            border-radius: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 0 auto 80px auto;
+            max-width: 1232px;
+        }
+        .cta-text h2 {
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+        .cta-text p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+        .cta-actions {
+            display: flex;
+            gap: 16px;
+        }
+        .cta-actions .btn-outline {
+            background: white;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-bg);
+            color: white;
+            padding: 60px 0 24px 0;
+            font-size: 0.85rem;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+        .footer-logo {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+        .footer-logo i { color: var(--primary-green); margin-right: 8px; }
+        .footer-col p {
+            color: #888;
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+        .footer-col h4 {
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+        .footer-col ul li a {
+            color: #888;
+            transition: color 0.2s;
+        }
+        .footer-col ul li a:hover { color: white; }
+        
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 24px;
+            display: flex;
+            justify-content: space-between;
+            color: #666;
+            font-size: 0.75rem;
+        }
+        .footer-bottom-links a {
+            color: #666;
+            margin-left: 16px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .hero-grid, .repair-grid { grid-template-columns: 1fr; }
+            .products-grid { grid-template-columns: repeat(2, 1fr); }
+            .features-grid { grid-template-columns: repeat(2, 1fr); }
+            .industries-grid { grid-template-columns: repeat(3, 1fr); }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .cta-section { flex-direction: column; text-align: center; gap: 24px; }
+        }
+
+        @media (max-width: 768px) {
+            .top-bar { display: none; }
+            .nav-links { display: none; }
+            .hero-content h2 { font-size: 2.5rem; }
+            .hero-buttons, .hero-features, .repair-options, .cta-actions { flex-direction: column; }
+            .products-grid, .features-grid, .industries-grid { grid-template-columns: 1fr; }
+            .features-section, .cta-section { margin-left: 16px; margin-right: 16px; padding: 32px 24px; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+            .footer-bottom-links a { margin: 0 8px; }
+        }
+    </style>
 </head>
 <body>
 
-<nav class="navbar">
-  <div class="nav-container">
-    <div class="logo">
-      <h1>KRYSTAL TEES <span>INVESTMENTS</span></h1>
-    </div>
-    <div class="mobile-menu" id="mobileMenuBtn">
-      <i class="fas fa-bars"></i>
-    </div>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="#home">Home</a></li>
-      <li><a href="#products">Products</a></li>
-      <li><a href="#quality">Quality</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </div>
-</nav>
-
-<main>
-  <!-- Hero Section -->
-  <section id="home" class="hero">
-    <div class="container hero-grid">
-      <div class="hero-content" data-aos="fade-up" data-aos-duration="800">
-        <h1>Industrial Hardware <br> <span class="hero-highlight">Engineered for Excellence</span></h1>
-        <p>Trusted supplier of pumps, valves, lubricants, chemicals, and underground spares. Elevating mining, construction & manufacturing across Zimbabwe and beyond.</p>
-        <div class="btn-group">
-          <a href="#products" class="btn-primary">Explore Solutions <i class="fas fa-arrow-right"></i></a>
-          <a href="#contact" class="btn-outline">Get In Touch</a>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-left">
+                <span><i class="fa-solid fa-phone"></i> 078 464 2311</span>
+                <span><i class="fa-brands fa-whatsapp"></i> WhatsApp Us</span>
+                <span>sales@krystaltees.co.zw</span>
+            </div>
+            <div class="top-right">
+                <span>Shop 4, Jadli Complex, Tilcor Industries, Chitungwiza</span>
+                <span>Mon-Sat, 08:00-17:00</span>
+            </div>
         </div>
-      </div>
-      <div class="hero-stats" data-aos="fade-left" data-aos-duration="800">
-        <div class="stat-number">2021</div>
-        <p>Incorporated with Vision</p>
-        <div class="stat-number" style="font-size: 2rem;">5+</div>
-        <p>Years Industry Expertise</p>
-        <i class="fas fa-check-circle" style="color: var(--green-primary); font-size: 2rem;"></i>
-        <p style="margin-top: 8px;">Global Sourcing | Premium Brands</p>
-      </div>
     </div>
-  </section>
 
-  <!-- Product Overview Section -->
- <section id="products" class="section">
- <div class="container">
- <h2 class="section-title" data-aos="fade-up">Comprehensive Product Range</h2>
- <p style="text-align: center; max-width: 720px; margin: 0 auto 2.5rem auto; color: #2c5a6e;" data-aos="fade-up" data-aos-delay="100">
- From mining chemicals to heavy-duty pumps – Krystal Tees delivers quality solutions tailored for agriculture, industrial, mining and construction.
- </p>
- <div class="card-grid">
- <!-- Pumps, Valves & Accessories -->
- <div class="product-card" data-aos="zoom-in" data-aos-delay="100">
- <div class="card-icon"><i class="fas fa-pump-water"></i></div>
- <h3>Pumps, Valves & Accessories</h3>
- <p>Slurry pumps, waste & environmental discharges, irrigation, dewatering, industrial washdowns. Supply & repair services available. Custom brand preferences.</p>
- <div class="badge-list"><span class="badge">Slurry Pumps</span><span class="badge">Valves</span><span class="badge">Dewatering</span></div>
- </div>
- <!-- Lubricants -->
- <div class="product-card" data-aos="zoom-in" data-aos-delay="200">
- <div class="card-icon"><i class="fas fa-oil-can"></i></div>
- <h3>Lubricants & Industrial Chemicals</h3>
- <p>Compressor oils, gear oils, engine oils, hydraulic oils, general purpose greases, bearing greases & rope dressing. Broad mining & water treatment chemicals from world leaders.</p>
- <div class="badge-list"><span class="badge">High-performance</span><span class="badge">Reputable Brands</span></div>
- </div>
- 
- <!-- Pipes, Fittings & Flanges -->
- <div class="product-card" data-aos="zoom-in" data-aos-delay="400">
- <div class="card-icon"><i class="fas fa-pipe-valve"></i></div>
- <h3>Pipes, Fittings & Flanges</h3>
- <p>Coated & uncoated steel pipe, lance tubing, Klambon, flanges, couplings. Conveyance of water, slurry, air & gas. Corrosion protection options available.</p>
- <div class="badge-list"><span class="badge">Steel Pipe</span><span class="badge">Klambon</span><span class="badge">Flanges</span></div>
- </div>
- </div>
- <!-- extra note: conveyor belts etc from intro -->
- <div style="margin-top: 2rem; text-align: center;" data-aos="fade-up">
- <p style="background: var(--green-light); display: inline-block; padding: 0.5rem 1.8rem; border-radius: 40px;"><i class="fas fa-conveyor-belt"></i> Also offering: Conveyor belts, hoists, industrial hardware & loco spares</p>
- </div>
- </div>
- </section>
+    <!-- Main Navigation -->
+    <nav class="main-nav">
+        <div class="container">
+            <div class="logo-area">
+                <div class="logo-icon"><i class="fa-solid fa-leaf"></i></div>
+                <div class="logo-text">
+                    <h1>Krystal Tees</h1>
+                    <p>Industrial hardware is our business</p>
+                </div>
+            </div>
+            
+            <ul class="nav-links">
+                <li><a href="#">Products <i class="fa-solid fa-chevron-down"></i></a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Industries</a></li>
+                <li><a href="#">Resources</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
 
- <!-- Quality + Corporate Values -->
- <div class="container" id="quality">
- <div class="quality-section" data-aos="fade-up" data-aos-offset="200">
- <div class="flex-two">
- <div class="quality-text">
- <h2 style="font-size: 2rem; color: var(--blue-deep); margin-bottom: 1rem;">Quality of Product</h2>
- <p style="font-size: 1.05rem; line-height: 1.5;">Consistent with our mission, <strong>KRYSTAL TEES INVESTMENTS</strong> only offers a high-quality range of goods from premium brands procured locally and from South African and China distributors, by our parent company. Product brands are constantly reviewed to ensure specifications meet the highest standards and quality.</p>
- <p style="margin-top: 1rem;"><i class="fas fa-certificate" style="color: var(--green-primary);"></i> Fully supported by highly experienced sales staff — quality guarantee on every component.</p>
- </div>
- <div class="values-list">
- <div class="value-item">
- <div class="value-icon"><i class="fas fa-handshake"></i></div>
- <div><strong style="color: var(--blue-deep);">Trust & Reliability</strong><br>Preferred supplier of quality industrial hardware in Zimbabwe</div>
- </div>
- <div class="value-item">
- <div class="value-icon"><i class="fas fa-chart-line"></i></div>
- <div><strong style="color: var(--blue-deep);">Lower Operational Cost</strong><br>Affordable high-quality goods, improve operational performance</div>
- </div>
- <div class="value-item">
- <div class="value-icon"><i class="fas fa-medal"></i></div>
- <div><strong style="color: var(--blue-deep);">Customer Eccentric</strong><br>Extraordinary service, preferred brands for every client’s needs</div>
- </div>
- </div>
- </div>
- </div>
- </div>
+            <div class="nav-actions">
+                <a href="#" class="cart-icon">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span class="cart-badge">0</span>
+                </a>
+                <a href="#" class="btn btn-primary">Request a Quote</a>
+            </div>
+        </div>
+    </nav>
 
- <!-- Mission Vision snippet + additional -->
- <div class="container">
- <div style="background: white; border-radius: 40px; padding: 2rem; box-shadow: 0 8px 24px rgba(0,0,0,0.02); margin: 1rem 0 2rem;" data-aos="flip-up">
- <div style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center;">
- <div style="flex:1; text-align: center; border-right: 1px solid var(--gray-mid); padding: 1rem;">
- <i class="fas fa-bullseye" style="font-size: 2.2rem; color: var(--green-primary);"></i>
- <h3 style="margin: 0.5rem 0;">Our Mission</h3>
- <p>To lower the cost of industrial hardware materials and improve operational performance of clients through supplying affordable high-quality goods while offering extraordinary customer service.</p>
- </div>
- <div style="flex:1; text-align: center; padding: 1rem;">
- <i class="fas fa-eye" style="font-size: 2.2rem; color: var(--blue-bright);"></i>
- <h3 style="margin: 0.5rem 0;">Our Vision</h3>
- <p>The preferred supplier of quality industrial hardware products in Zimbabwe and beyond.</p>
- </div>
- </div>
- </div>
- </div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <span class="pill-badge">Backed by Krystal Tees South Africa</span>
+                <h2>Pumps, valves, lubricants and industrial hardware.</h2>
+                <p>Leading global brands, supplied, installed and repaired from Chitungwiza for mining, construction, manufacturing and agriculture.</p>
+                
+                <div class="hero-buttons">
+                    <a href="#" class="btn btn-primary">Request a Quote <i class="fa-solid fa-arrow-right"></i></a>
+                    <a href="#" class="btn btn-outline"><i class="fa-solid fa-wrench"></i> Book a Pump Repair</a>
+                </div>
 
- <!-- Additional product info: chemicals, pumps repair, etc -->
- <div class="container">
- <div style="display: flex; flex-wrap: wrap; gap: 2rem; margin: 1rem 0 3rem;" data-aos="fade-right">
- <div style="flex:1; background: #FEFCF5; border-radius: 24px; padding: 1.5rem;">
- <i class="fas fa-flask" style="font-size: 2rem; color: var(--green-primary);"></i>
- <h3 style="margin: 0.8rem 0;">Chemicals (Mining & Industrial)</h3>
- <p>Broad range covering mining, manufacturing, processing, water treatment chemicals. Sourced from the world’s leading chemical manufacturers.</p>
- </div>
- <div style="flex:1; background: #F0F5FF; border-radius: 24px; padding: 1.5rem;">
- <i class="fas fa-tools" style="font-size: 2rem; color: var(--blue-deep);"></i>
- <h3 style="margin: 0.8rem 0;">Pump & Valve Repair</h3>
- <p>Expert repair services for various pumps and valves. Supporting slurry, waste, irrigation, general discharges — maximize asset lifecycle.</p>
- </div>
- </div>
- </div>
+                <div class="hero-features">
+                    <div class="hero-feature">
+                        <i class="fa-solid fa-check"></i>
+                        <span>Genuine, brand-backed stock</span>
+                    </div>
+                    <div class="hero-feature">
+                        <i class="fa-solid fa-check"></i>
+                        <span>Any pump brand repaired</span>
+                    </div>
+                    <div class="hero-feature">
+                        <i class="fa-solid fa-check"></i>
+                        <span>Quotes returned within 24 hours</span>
+                    </div>
+                </div>
+            </div>
 
- <!-- Contact Section & Location -->
- <section id="contact" class="section">
- <div class="container">
- <h2 class="section-title" data-aos="fade-up">Connect With Us</h2>
- <div class="contact-section" data-aos="zoom-in-up">
- <div class="contact-grid">
- <div class="contact-card">
- <i class="fas fa-map-marker-alt" style="font-size: 2.5rem; color: var(--green-primary);"></i>
- <h3>Visit Our Hub</h3>
- <p>Shop 4 Jaidl Complex, 19813 Tilcor Industries, Chitungwiza, Zimbabwe</p>
- </div>
- <div class="contact-card">
- <i class="fas fa-envelope" style="font-size: 2.5rem; color: var(--blue-bright);"></i>
- <h3>Email Us</h3>
- <p><a href="mailto:Lnmugari@gmail.com" style="color: var(--blue-deep);">Lnmugari@gmail.com</a><br><a href="mailto:info@krystaltees.co.zw" style="color: var(--blue-deep);">info@krystaltees.co.zw</a></p>
- </div>
- <div class="contact-card">
- <i class="fas fa-phone-alt" style="font-size: 2.5rem; color: var(--green-primary);"></i>
- <h3>Call / WhatsApp</h3>
- <p>+263 242 615 018<br>+263 784 642 311</p>
- </div>
- </div>
- <div style="margin-top: 2rem; text-align: center; border-top: 1px solid #cbdbe0; padding-top: 1.8rem;">
- <p><i class="fas fa-globe"></i> Trusted by mining & industrial sectors — get in touch for quotations and expert support.</p>
- </div>
- </div>
- </div>
- </section>
+            <div class="hero-card">
+                <h3>What do you need today?</h3>
+                
+                <div class="hero-card-item">
+                    <div class="icon"><i class="fa-solid fa-droplet"></i></div>
+                    <div class="text">
+                        <h4>Pumps & valves</h4>
+                        <p>Slurry, dewatering, borehole, irrigation</p>
+                    </div>
+                    <i class="fa-solid fa-arrow-right arrow"></i>
+                </div>
+                
+                <div class="hero-card-item">
+                    <div class="icon" style="color: #d35400; background: #fdf0e6;"><i class="fa-solid fa-oil-can"></i></div>
+                    <div class="text">
+                        <h4>Lubricants & chemicals</h4>
+                        <p>TotalEnergies and Puma oils, greases</p>
+                    </div>
+                    <i class="fa-solid fa-arrow-right arrow"></i>
+                </div>
 
- <!-- Footer -->
- <footer class="footer">
- <div class="container">
- <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-bottom: 1.5rem;">
- <span><i class="fas fa-certificate"></i> Quality Guarantee</span>
- <span><i class="fas fa-truck"></i> Global Sourcing</span>
- <span><i class="fas fa-hard-hat"></i> Mining & Industrial Focus</span>
- </div>
- <p>© 2025 KRYSTAL TEES INVESTMENTS (PVT) LTD — Incorporated 2021. All rights reserved.</p>
- <p style="font-size: 0.8rem; margin-top: 0.6rem;">Your partner in pumps, lubricants, chemicals, loco spares & industrial hardware.</p>
- </div>
- </footer>
-</main>
+                <div class="hero-card-item">
+                    <div class="icon" style="color: #6c5ce7; background: #efedfd;"><i class="fa-solid fa-circle-notch"></i></div>
+                    <div class="text">
+                        <h4>Bearings, belts & hoists</h4>
+                        <p>Search by part number</p>
+                    </div>
+                    <i class="fa-solid fa-arrow-right arrow"></i>
+                </div>
 
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>
- // Initialize AOS (Animate on Scroll)
- AOS.init({
- duration: 800,
- once: false,
- mirror: false,
- offset: 80,
- easing: 'ease-out-quad',
- });
+                <div class="hero-card-item dark">
+                    <div class="icon"><i class="fa-solid fa-wrench"></i></div>
+                    <div class="text">
+                        <h4>Pump repair & installation</h4>
+                        <p>Any brand, on-site or in our workshop</p>
+                    </div>
+                    <i class="fa-solid fa-arrow-right arrow"></i>
+                </div>
+            </div>
+        </div>
+    </section>
 
- // Mobile menu toggle
- const mobileBtn = document.getElementById('mobileMenuBtn');
- const navLinks = document.getElementById('navLinks');
- mobileBtn.addEventListener('click', () => {
- navLinks.classList.toggle('active');
- });
+    <!-- Brands Section -->
+    <section class="brands">
+        <div class="container">
+            <div class="brands-title">BRANDS WE SUPPLY</div>
+            <div class="brands-list">
+                <div class="brand-item">Flygt</div>
+                <div class="brand-item">Meudy</div>
+                <div class="brand-item">Daro</div>
+                <div class="brand-item">SKF</div>
+                <div class="brand-item">NTN</div>
+                <div class="brand-item">FAG</div>
+                <div class="brand-item">INA</div>
+                <div class="brand-item">Luk</div>
+                <div class="brand-item">Yale</div>
+                <div class="brand-item">TotalEnergies</div>
+                <div class="brand-item">Puma</div>
+                <div class="brand-item dashed">Your brand? We source it</div>
+            </div>
+        </div>
+    </section>
 
- // Close mobile menu after clicking a link (smooth)
- const links = document.querySelectorAll('.nav-links a');
- links.forEach(link => {
- link.addEventListener('click', (e) => {
- navLinks.classList.remove('active');
- const targetId = link.getAttribute('href');
- if(targetId && targetId !== '#') {
- e.preventDefault();
- const targetElement = document.querySelector(targetId);
- if(targetElement) {
- targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
- }
- }
- });
- });
- // minor smooth for home link
- document.querySelector('.logo a, .logo h1')?.addEventListener('click', (e) => {
- e.preventDefault();
- window.scrollTo({ top: 0, behavior: 'smooth' });
- });
- // ensure btn click works
- document.querySelector('.btn-primary')?.addEventListener('click', (e) => {
- const href = e.currentTarget.getAttribute('href');
- if(href && href !== '#') {
- e.preventDefault();
- const target = document.querySelector(href);
- if(target) target.scrollIntoView({ behavior: 'smooth' });
- }
- });
- document.querySelector('.btn-outline')?.addEventListener('click', (e) => {
- const href = e.currentTarget.getAttribute('href');
- if(href && href !== '#') {
- e.preventDefault();
- const target = document.querySelector(href);
- if(target) target.scrollIntoView({ behavior: 'smooth' });
- }
- });
-</script>
+    <!-- Products Section -->
+    <section class="products">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-header-left">
+                    <h4>OUR PRODUCTS</h4>
+                    <h2>Everything your plant runs on</h2>
+                </div>
+                <a href="#" class="link-arrow">View all products <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+
+            <div class="products-grid">
+                <!-- Card 1 -->
+                <div class="product-card card-blue">
+                    <div class="product-icon" style="color: #4a90e2; background: #eff6ff;"><i class="fa-solid fa-droplet"></i></div>
+                    <div class="product-category">FLUID HANDLING</div>
+                    <h3>Pumps, Valves & Accessories</h3>
+                    <p>Slurry, dewatering, borehole, irrigation and wash-down pumps. Ball, gate, butterfly, check and actuated valves.</p>
+                    <a href="#" class="link-arrow">Explore fluid handling <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="product-card card-orange">
+                    <div class="product-icon" style="color: #d35400; background: #fdf0e6;"><i class="fa-solid fa-oil-can"></i></div>
+                    <div class="product-category">LUBRICANTS & CHEMICALS</div>
+                    <h3>Lubricants & Industrial Chemicals</h3>
+                    <p>Engine, hydraulic, gear and compressor oils, greases and rope dressing. Mining, processing and water treatment chemicals.</p>
+                    <a href="#" class="link-arrow">Explore lubricants & chemicals <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="product-card card-purple">
+                    <div class="product-icon" style="color: #6c5ce7; background: #efedfd;"><i class="fa-solid fa-circle-notch"></i></div>
+                    <div class="product-category">MECHANICAL & MATERIAL HANDLING</div>
+                    <h3>Bearings, Belts & Hoists</h3>
+                    <p>SKF, NTN, FAG, INA and LUK bearings and power transmission. Conveyor belts. Yale hoists and lifting equipment.</p>
+                    <a href="#" class="link-arrow">Explore mechanical <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Green Section -->
+    <section class="features-section">
+        <div class="container">
+            <h2>Why industrial buyers choose Krystal Tees</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <i class="fa-regular fa-shield-check"></i>
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <h4>Backed by Krystal Tees South Africa</h4>
+                    <p>Every product is sourced through our parent company, so you get genuine stock.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fa-solid fa-award"></i>
+                    <h4>Leading global brands</h4>
+                    <p>Flygt, SKF, Schaeffler, Yale, TotalEnergies, Puma and more.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fa-solid fa-screwdriver-wrench"></i>
+                    <h4>Supply, install and repair</h4>
+                    <p>We repair any pump brand, on-site or in our workshop, and install new systems.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <h4>Your brand, your choice</h4>
+                    <p>Tell us the brand and part number you use, and we will source it.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Repair Section -->
+    <section class="repair-section">
+        <div class="container repair-grid">
+            <div class="how-it-works">
+                <span>HOW IT WORKS</span>
+                <div class="step">
+                    <div class="step-num">1</div>
+                    <div class="step-text">
+                        <h4>Contact us</h4>
+                        <p>Call, WhatsApp a photo of the nameplate, or book online.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-num">2</div>
+                    <div class="step-text">
+                        <h4>Assessment</h4>
+                        <p>On-site at your mine or plant, or in our workshop.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-num">3</div>
+                    <div class="step-text">
+                        <h4>Quotation</h4>
+                        <p>Repair or replace, priced clearly within 24 hours.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-num">4</div>
+                    <div class="step-text">
+                        <h4>Repair and handover</h4>
+                        <p>Back in service, with collection or delivery if needed.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="repair-content">
+                <span>PUMP REPAIR & INSTALLATION</span>
+                <h2>Pump down? We get you running again.</h2>
+                <p>We repair slurry, dewatering and industrial pumps of any brand, and install new borehole, irrigation, booster and industrial systems.</p>
+                
+                <div class="repair-options">
+                    <div class="repair-option">
+                        <h4>On-site repair</h4>
+                        <p>At your mine or plant</p>
+                    </div>
+                    <div class="repair-option">
+                        <h4>Workshop repair</h4>
+                        <p>Collection and delivery</p>
+                    </div>
+                    <div class="repair-option">
+                        <h4>Installation</h4>
+                        <p>Supply and install</p>
+                    </div>
+                </div>
+
+                <div class="repair-actions">
+                    <a href="#" class="btn btn-primary">Book a repair or installation</a>
+                    <a href="#" class="btn btn-outline">Send a photo on WhatsApp</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industries Section -->
+    <section class="industries-section">
+        <div class="container">
+            <h4>INDUSTRIES WE SERVE</h4>
+            <h2>Built for Zimbabwe's toughest sites</h2>
+            
+            <div class="industries-grid">
+                <div class="industry-card">
+                    <i class="fa-solid fa-pickaxe"></i>
+                    <h3>Mining</h3>
+                    <p>Explore &rarr;</p>
+                </div>
+                <div class="industry-card">
+                    <i class="fa-solid fa-helmet-safety"></i>
+                    <h3>Construction</h3>
+                    <p>Explore &rarr;</p>
+                </div>
+                <div class="industry-card">
+                    <i class="fa-solid fa-industry"></i>
+                    <h3>Manufacturing & Processing</h3>
+                    <p>Explore &rarr;</p>
+                </div>
+                <div class="industry-card">
+                    <i class="fa-solid fa-wheat-awn"></i>
+                    <h3>Agriculture & Irrigation</h3>
+                    <p>Explore &rarr;</p>
+                </div>
+                <div class="industry-card">
+                    <i class="fa-solid fa-water"></i>
+                    <h3>Water Treatment</h3>
+                    <p>Explore &rarr;</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision Section -->
+    <section class="vision-section">
+        <div class="container">
+            <h4>OUR VISION</h4>
+            <h2>To be the preferred supplier of quality industrial hardware products in Zimbabwe.</h2>
+            <a href="#">About Krystal Tees &rarr;</a>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <div class="container">
+        <section class="cta-section">
+            <div class="cta-text">
+                <h2>Need a price? Send us your list.</h2>
+                <p>Part numbers, specs or a photo. We reply with a quotation within 24 hours.</p>
+            </div>
+            <div class="cta-actions">
+                <a href="#" class="btn btn-primary">Request a Quote</a>
+                <a href="#" class="btn btn-outline"><i class="fa-brands fa-whatsapp"></i> WhatsApp 078 464 2311</a>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo"><i class="fa-solid fa-leaf"></i> Krystal Tees</div>
+                    <p>Shop 4, Jadli Complex<br>19813 Tilcor Industries<br>Chitungwiza, Zimbabwe</p>
+                    <p style="margin-top: 16px;">Mon-Sat, 08:00-17:00</p>
+                    <a href="#" style="color: white; text-decoration: underline; margin-top: 8px; display: inline-block;">Get directions &rarr;</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="#">+263 242 615 018</a></li>
+                        <li><a href="#">078 464 2311</a></li>
+                        <li><a href="#">sales@krystaltees.co.zw</a></li>
+                        <li><a href="#">info@krystaltees.co.zw</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Products</h4>
+                    <ul>
+                        <li><a href="#">Pumps</a></li>
+                        <li><a href="#">Valves & Accessories</a></li>
+                        <li><a href="#">Lubricants</a></li>
+                        <li><a href="#">Industrial Chemicals</a></li>
+                        <li><a href="#">Bearings, Belts & Hoists</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#">Pump Repair & Installation</a></li>
+                        <li><a href="#">Brand Sourcing</a></li>
+                        <li><a href="#">Bulk & Contract Supply</a></li>
+                        <li><a href="#">Trade Accounts</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; Krystal Tees Investments (Pvt) Ltd. A member of the Krystal Tees group. Reg. no. 622/2021</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy</a>
+                    <a href="#">Terms of Supply</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
 </body>
 </html>
